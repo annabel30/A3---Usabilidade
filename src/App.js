@@ -7,6 +7,8 @@ import Home from './pages/home/Home'
 import Battle from './pages/battle/Battle'
 import Collection from './pages/collection/Collection'
 import Store from './pages/store/Store'
+import Character from './pages/character/Character'
+import Game from './pages/game/Game'
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path='/battle' element={<Battle />} />
           <Route path='/collection' element={<Collection />} />
           <Route path='/store' element={<Store />} />
+          <Route path='/character' element={<Character />} />
+          <Route path='/game' element={<Game />} />
         </Routes>
       </BrowserRouter>
     </div>

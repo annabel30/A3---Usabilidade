@@ -1,5 +1,5 @@
 // styles
-import "./Home.css";
+import "./Character.css";
 
 // json
 //import charactersData from "../../data/characters.json";
@@ -11,17 +11,11 @@ import "./Home.css";
 // react icons
 //import { BiMap } from "react-icons/bi";
 
-// components
-import Navbar from '../../components/navbar/Navbar'
-
-function Home() {
-
+function Character() {
+    
     return (
-        <>
-            <p>home</p>
-            <Navbar />
-        </>
+        <p>Character</p>
     )
 }
 
-export default Home;
+export default Character;
