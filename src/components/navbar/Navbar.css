@@ -10,3 +10,16 @@
     left: 0;
     background-color: gray;
 }
+
+.navbar_icon {
+    height: 55%;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar_icon:hover {
+    transform: scale(1.2);
+}
+.navbar_icon.selected {
+    transform: scale(1.2);
+}

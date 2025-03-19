@@ -10,10 +10,14 @@ import Store from './pages/store/Store'
 import Character from './pages/character/Character'
 import Game from './pages/game/Game'
 
+//components
+import Navbar from './components/navbar/Navbar'
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path='' element={<Home />} />
           <Route path='/battle' element={<Battle />} />
