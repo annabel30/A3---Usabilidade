@@ -32,8 +32,8 @@ function Navbar() {
     <>
       <div id="navbar">
         <div className="profile_box"></div>
-        <div className="navbar_options"></div>
-        {/* {icons.map((option, index) =>
+        <div className="navbar_box">
+          {/* {icons.map((option, index) =>
             selectedIcon === option.name ? (
               <option.selectedIcon
                 key={index}
@@ -47,6 +47,7 @@ function Navbar() {
               />
             )
           )} */}
+        </div>
         <img className="navbar_logo" src="/logo.png" alt="Minha Imagem" />
       </div>
     </>
