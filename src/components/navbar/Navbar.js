@@ -47,6 +47,7 @@ function Navbar() {
               />
             )
           )} */}
+        <img className="navbar_logo" src="/logo.png" alt="Minha Imagem" />
       </div>
     </>
   );
