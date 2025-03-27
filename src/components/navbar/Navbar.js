@@ -31,7 +31,9 @@ function Navbar() {
   return (
     <>
       <div id="navbar">
-        <div className="profile_box"></div>
+        <div className="navbar_profile_box">
+          <div className="navbar_profile_icon"></div>
+        </div>
         <div className="navbar_box">
           {/* {icons.map((option, index) =>
             selectedIcon === option.name ? (

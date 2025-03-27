@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 40%;
+    width: 35%;
     height: 100%;
     position: fixed;
     top: 0;
@@ -20,6 +20,10 @@
     height: 4rem;
     background-color: gray;
     border-radius: 0 0 1rem 0;
+}
+
+.navbar_profile_icon {
+    
 }
 
 .navbar_box_old {
