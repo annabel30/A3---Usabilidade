@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     width: 35%;
     height: 100%;
     position: fixed;
@@ -23,7 +22,19 @@
 }
 
 .navbar_profile_icon {
-    
+    height: 3rem;
+    width: 3rem;
+    border-radius: 2rem;
+    background-color: rgb(51, 51, 51);
+}
+
+.navbar_option {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 80%;
+    background-color: beige;
+    border-radius: 0 1rem 1rem 0;
 }
 
 .navbar_box_old {

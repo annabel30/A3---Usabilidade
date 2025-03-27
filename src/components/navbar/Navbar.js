@@ -18,9 +18,19 @@ function Navbar() {
   const [selectedIcon, setSelectedIcon] = useState("");
 
   const icons = [
-    { name: "/store", icon: BiCart, selectedIcon: BiSolidCart },
-    { name: "/", icon: RiSwordLine, selectedIcon: RiSwordFill },
-    { name: "/collection", icon: TbCards, selectedIcon: TbCardsFilled },
+    { path: "/store", name: "Loja", icon: BiCart, selectedIcon: BiSolidCart },
+    {
+      path: "/",
+      name: "Batalha",
+      icon: RiSwordLine,
+      selectedIcon: RiSwordFill,
+    },
+    {
+      name: "/collection",
+      name: "Coleção",
+      icon: TbCards,
+      selectedIcon: TbCardsFilled,
+    },
   ];
 
   const changePage = (page) => {
@@ -34,21 +44,27 @@ function Navbar() {
         <div className="navbar_profile_box">
           <div className="navbar_profile_icon"></div>
         </div>
-        <div className="navbar_box">
-          {/* {icons.map((option, index) =>
+        <div className="navbar_options_box">
+          {icons.map((option, index) =>
             selectedIcon === option.name ? (
-              <option.selectedIcon
-                key={index}
-                className="navbar_icon selected"
-              />
+              <div className="navbar_option">
+                <option.selectedIcon
+                  key={index}
+                  className="navbar_icon selected"
+                />
+                <p>{option.name}</p>
+              </div>
             ) : (
-              <option.icon
-                className="navbar_icon unselected"
-                key={index}
-                onClick={() => changePage(option.name)}
-              />
+              <div className="navbar_option">
+                <option.icon
+                  className="navbar_icon unselected"
+                  key={index}
+                  onClick={() => changePage(option.name)}
+                />
+                <p>{option.name}</p>
+              </div>
             )
-          )} */}
+          )}
         </div>
         <img className="navbar_logo" src="/logo.png" alt="Minha Imagem" />
       </div>
