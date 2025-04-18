@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 35%;
+    width: 32%;
     height: 100%;
     position: fixed;
     top: 0;
@@ -13,19 +13,55 @@
 .navbar_profile_box {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: end;
     align-items: center;
     width: 100%;
-    height: 4rem;
-    background-color: gray;
-    border-radius: 0 0 1rem 0;
+    height: 3rem;
+    background-color: #1A2B84;
+    border-right: 8px solid #131D53;
+    border-bottom: 8px solid #131D53;
+    border-radius: 0 0 2rem 0;
+    padding-left: 5rem;
 }
 
 .navbar_profile_icon {
-    height: 3rem;
-    width: 3rem;
-    border-radius: 2rem;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 5rem;
     background-color: rgb(51, 51, 51);
+    position: absolute;
+    margin-bottom: -3rem;
+    background-image: url(../../../public/assets/profile.png);
+    background-size: cover;     /* ajusta a imagem pra cobrir toda a div */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat;
+    border-left: 5px solid #131D53;
+    border-bottom: 4px solid #131D53;
+    left: 1.5rem;
+}
+
+.navbar_profile_info_box {
+    width: 5rem;
+    height: 1.5rem;
+    background-color: #15205B;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem;
+    margin-right: 1rem;
+}
+
+.navbar_profile_info {
+    width: 80%;
+    height: 100%;
+    background-color: #283785;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .navbar_option {

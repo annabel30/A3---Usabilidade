@@ -42,7 +42,15 @@ function Navbar() {
     <>
       <div id="navbar">
         <div className="navbar_profile_box">
-          <div className="navbar_profile_icon"></div>
+          <div className="navbar_profile_icon" />
+          <div className="navbar_profile_info_box">
+            <img src="/assets/icons/level.png" alt="Level" width={"25px"} height={"25px"} />
+            <div className="navbar_profile_info">40/560</div>
+          </div>
+          <div className="navbar_profile_info_box">
+            <img src="/assets/icons/coin.png" alt="Moeda" width={"25px"} height={"25px"} />
+            <div className="navbar_profile_info">6500</div>
+          </div>
         </div>
         <div className="navbar_options_box">
           {icons.map((option, index) =>
