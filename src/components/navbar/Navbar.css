@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 32%;
+    width: 28%;
     height: 100%;
     position: fixed;
     top: 0;
@@ -32,8 +32,10 @@
     position: absolute;
     margin-bottom: -3rem;
     background-image: url(../../../public/assets/profile.png);
-    background-size: cover;     /* ajusta a imagem pra cobrir toda a div */
-    background-position: center; /* centraliza a imagem */
+    background-size: cover;
+    /* ajusta a imagem pra cobrir toda a div */
+    background-position: center;
+    /* centraliza a imagem */
     background-repeat: no-repeat;
     border-left: 5px solid #131D53;
     border-bottom: 4px solid #131D53;
@@ -64,13 +66,26 @@
     color: white;
 }
 
+.navbar_options_box {
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 3rem;
+}
+
+/* -------------------------------------------- */
+
 .navbar_option {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     gap: 1rem;
-    width: 80%;
-    background-color: beige;
-    border-radius: 0 1rem 1rem 0;
+    width: 50%;
+    height: 3rem;
+    align-items: center;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding-left: 5rem;
 }
 
 .navbar_box_old {
@@ -90,16 +105,23 @@
 }
 
 .navbar_icon {
-    height: 55%;
     width: auto;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    margin-right: -0.75rem;
+    /* padrão */
 }
 
-.navbar_icon:hover {
-    transform: scale(1.2);
+.navbar_icon {
+    width: auto;
+    transition: all 0.3s ease;
+    margin-right: -0.75rem;
+    /* padrão */
 }
+
 .navbar_icon.selected {
     transform: scale(1.2);
+    margin-right: -2rem;
+    /* empurra pra esquerda junto com a aba */
 }
 
 .navbar_logo {
