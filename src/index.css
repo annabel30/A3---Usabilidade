@@ -1,14 +1,15 @@
 @font-face {
-  
+  font-family: 'PatrickHand';
+  src: url('/public/fonts/PatrickHand-Regular.ttf') format('woff2'),
+       url('/public/fonts/PatrickHand-Regular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
   margin: 0;
   padding: 0;
-}
-
-body {
-  
+  font-family: 'PatrickHand', sans-serif;
 }
 
 a {

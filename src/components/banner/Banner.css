@@ -1,0 +1,20 @@
+.banner_info {
+    /* position: absolute;
+    width: 200px;
+    height: 100px;
+    border-style: solid;
+    border-color: transparent transparent transparent yellow; /* Borda inferior esquerda transparente */
+    /* border-width: 0 160px 100px 50px; */
+    background-image: url("../../../public/assets/backgrounds/banner.png");
+    background-size: contain;
+    background-position: center; /* Para centralizar a imagem */
+    background-repeat: no-repeat; /* Para evitar repetição */
+    position: absolute;
+    width: 17rem;
+    height: 8rem;
+    right: -10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
