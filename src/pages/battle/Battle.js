@@ -6,7 +6,7 @@ import "./Battle.css";
 
 // react
 //import React, { useState } from "react";
-//import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // react icons
 //import { BiMap } from "react-icons/bi";
@@ -15,14 +15,46 @@ import "./Battle.css";
 import { BannerInfo } from "../../components/banner/Banner";
 
 function Battle() {
+  const navigate = useNavigate();
+
+  const levels = [
+    {
+      name: "FÁCIL",
+      background: "/assets/backgrounds/background_easy.png",
+      level: "easy",
+    },
+    {
+      name: "MÉDIO",
+      background: "/assets/backgrounds/background_medium.png",
+      level: "medium",
+    },
+    {
+      name: "DIFÍCIL",
+      background: "/assets/backgrounds/background_hard.png",
+      level: "hard",
+    },
+  ];
+
+  const goToLevel = (level) => {
+    navigate("/game", { state: { difficulty: level } });
+  };
+
   return (
     <div id="battle">
-      <p>battle</p>
       <BannerInfo>{"SELECIONE A DIFICULDADE..."}</BannerInfo>
       <div className="battle_options">
-        <div className="battle_option">FÁCIL</div>
-        <div className="battle_option">MÉDIO</div>
-        <div className="battle_option">DIFÍCIL</div>
+        {levels.map((level, index) => (
+          <div
+            className="battle_option"
+            style={{
+              backgroundImage: `url(${level.background})`,
+            }}
+            onClick={() => goToLevel(level.level)}
+            key={index}
+          >
+            <p>{level.name}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -11,8 +11,7 @@
     background-repeat: no-repeat; /* Para evitar repetição */
     position: absolute;
     width: 17rem;
-    height: 8rem;
-    right: -10px;
+    height: 6rem;
 
     display: flex;
     justify-content: center;
