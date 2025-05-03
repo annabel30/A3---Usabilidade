@@ -1,0 +1,11 @@
+#store {
+    height: 100vh;
+    background-image: url("../../../public/assets/backgrounds/background_battle.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}

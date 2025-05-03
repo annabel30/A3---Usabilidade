@@ -1,6 +1,6 @@
 #battle {
     height: 100vh;
-    background-image: url("../../../public/assets/backgrounds/background_battle.jpg");
+    background-image: url("../../../public/assets/backgrounds/background_battle.png");
     background-size: cover; /* Para cobrir toda a tela */
     background-position: center; /* Para centralizar a imagem */
     background-repeat: no-repeat; /* Para evitar repetição */

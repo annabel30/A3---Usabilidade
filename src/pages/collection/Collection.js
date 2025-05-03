@@ -9,13 +9,39 @@ import "./Collection.css";
 //import { Link } from "react-router-dom";
 
 // react icons
-//import { BiMap } from "react-icons/bi";
+import { TbFilter } from "react-icons/tb";
+import { TbFilterOff } from "react-icons/tb";
 
 function Collection() {
-    
-    return (
-        <p>Collection</p>
-    )
+  return (
+    <div id="collection">
+      <div className="collection_filter">
+        <TbFilter width={"3rem"} height={"3rem"} />
+        <img className="collection_filter_icon" src="/assets/filter/filter_brain.png" alt="Filter" />
+        <img className="collection_filter_icon" src="/assets/filter/filter_sprint.png" alt="Filter" />
+        <img className="collection_filter_icon" src="/assets/filter/filter_arm.png" alt="Filter" />
+        <img className="collection_filter_icon" src="/assets/filter/filter_punch.png" alt="Filter" />
+      </div>
+      <div className="collection_container">
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+      </div>
+    </div>
+  );
 }
 
 export default Collection;

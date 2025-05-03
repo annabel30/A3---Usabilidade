@@ -69,7 +69,7 @@ function Navbar() {
               className="navbar_option"
               style={{
                 backgroundColor: option.color,
-                width: selectedIcon === option.name ? "45%" : "40%",
+                width: selectedIcon === option.name ? "55%" : "50%",
                 borderRight: selectedIcon === option.name ? `20px solid ${option.selectedColor}` : "none",
               }}
               onClick={() => changePage(option)}

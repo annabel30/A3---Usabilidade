@@ -14,7 +14,7 @@ import "./Store.css";
 function Store() {
     
     return (
-        <p>Store</p>
+        <div id="store"></div>
     )
 }
 
