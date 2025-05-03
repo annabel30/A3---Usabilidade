@@ -40,6 +40,14 @@ function Collection() {
         <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
         <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
       </div>
+      <div className="collection_deck">
+        <div className="collecton_box">
+        <img className="collection_deck_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_deck_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_deck_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_deck_card" src="/assets/cards/thanos.png" alt="" />
+        </div>
+      </div>
     </div>
   );
 }
