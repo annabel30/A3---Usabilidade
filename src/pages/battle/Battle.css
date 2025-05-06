@@ -1,14 +1,13 @@
 #battle {
     height: 100vh;
     background-image: url("../../../public/assets/backgrounds/background_battle.png");
-    background-size: cover; /* Para cobrir toda a tela */
-    background-position: center; /* Para centralizar a imagem */
-    background-repeat: no-repeat; /* Para evitar repetição */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     display: flex;
     flex-direction: row;
     justify-content: end;
-
 }
 
 .battle_options {

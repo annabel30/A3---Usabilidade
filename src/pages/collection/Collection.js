@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 // react icons
 import { TbFilter } from "react-icons/tb";
-import { TbFilterOff } from "react-icons/tb";
+//import { TbFilterOff } from "react-icons/tb";
 
 function Collection() {
 

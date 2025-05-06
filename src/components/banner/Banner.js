@@ -6,7 +6,15 @@ const BannerInfo = ({ children }) => {
     <div className='banner_info'>
       {children}
     </div>
-  );
-};
+  )
+}
 
-export { BannerInfo };
+const BannerSmall = ({ children }) => {
+  return (
+    <div className='banner_small'>
+      {children}
+    </div>
+  )
+}
+
+export { BannerInfo, BannerSmall };

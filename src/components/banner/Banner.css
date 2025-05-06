@@ -7,8 +7,8 @@
     /* border-width: 0 160px 100px 50px; */
     background-image: url("../../../public/assets/backgrounds/banner.png");
     background-size: contain;
-    background-position: center; /* Para centralizar a imagem */
-    background-repeat: no-repeat; /* Para evitar repetição */
+    background-position: center;
+    background-repeat: no-repeat;
     position: absolute;
     width: 17rem;
     height: 6rem;
@@ -16,4 +16,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.banner_small {
+    background-image: url("../../../public/assets/backgrounds/banner.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 6rem;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
 }
