@@ -85,7 +85,7 @@
 .collection_button {
     background-color: #437245;
     width: 8rem;
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     padding: 1rem;

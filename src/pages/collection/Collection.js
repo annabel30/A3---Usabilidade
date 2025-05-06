@@ -7,12 +7,16 @@ import "./Collection.css";
 // react
 //import React, { useState } from "react";
 //import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // react icons
 import { TbFilter } from "react-icons/tb";
 import { TbFilterOff } from "react-icons/tb";
 
 function Collection() {
+
+  const navigate = useNavigate();
+
   return (
     <div id="collection">
       <div className="collection_filter">
@@ -23,7 +27,7 @@ function Collection() {
         <img className="collection_filter_icon" src="/assets/filter/filter_punch.png" alt="Filter" />
       </div>
       <div className="collection_container">
-        <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
+        <img className="collection_card" src="/assets/cards/thanos.png" alt="" onClick={() => navigate("/character")} />
         <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
         <img className="collection_card" src="/assets/cards/thanos.png" alt="" />
         <img className="collection_card" src="/assets/cards/thanos.png" alt="" />

@@ -1,0 +1,35 @@
+#character {
+    background-image: url("../../../public/assets/backgrounds/background_character.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.character_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.character_card {
+    width: 12rem;
+}
+
+.character_text {
+    width: 12rem;
+    border-radius: 0.5rem;
+    font-size: 15px;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    background-color: white;
+    padding: 1rem;
+}
