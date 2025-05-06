@@ -48,6 +48,7 @@ function Collection() {
         <img className="collection_deck_card" src="/assets/cards/thanos.png" alt="" />
         </div>
       </div>
+      <div className="collection_button">SALVAR DECK</div>
     </div>
   );
 }
