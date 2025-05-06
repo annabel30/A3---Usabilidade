@@ -27,7 +27,8 @@
     align-items: center;
     background-attachment: fixed;
     position: fixed;
-    left: 38%;
+    left: 30%;
+    top: 5rem;
 }
 
 .collection_filter_icon {
@@ -36,7 +37,7 @@
 }
 
 .collection_container {
-    width: 35%;
+    width: 42%;
     height: auto;
 
     display: flex;
@@ -48,7 +49,7 @@
 }
 
 .collection_card {
-    height: 9.5rem;
+    height: 11rem;
     border-radius: 0.25rem;
 }
 
@@ -60,7 +61,7 @@
     border-radius: 1rem 0 0 1rem;
     box-shadow: 0 4px 0px 0px black;
     border: 1px solid black;
-    width: 9rem;
+    width: 8rem;
     height: 95vh;
     padding: 0.5rem;
     padding-left: 1.5rem;
