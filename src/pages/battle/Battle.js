@@ -56,6 +56,7 @@ function Battle() {
           </div>
         ))}
       </div>
+      <img className="battle_image" src="/assets/backgrounds/background_battle_image.png" />
     </div>
   );
 }

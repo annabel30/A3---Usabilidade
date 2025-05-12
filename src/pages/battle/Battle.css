@@ -31,3 +31,11 @@
     box-shadow: 0 4px 0px 0px black;
     border: 1px solid black;
 }
+
+.battle_image {
+    position: absolute;
+    width: 32rem;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}

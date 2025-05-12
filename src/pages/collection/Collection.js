@@ -7,14 +7,12 @@ import charactersData from "../../data/cards.json";
 // react
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 // react icons
 import { TbFilter } from "react-icons/tb";
 //import { TbFilterOff } from "react-icons/tb";
 
 function Collection() {
-  const navigate = useNavigate();
   const [filteredData, setFilteredData] = useState(
     Object.values(charactersData)
   );

@@ -8,7 +8,9 @@
         "velocity": 6,
         "physicalStrength": 5,
         "specialPower": 1,
-        "higherAttribute": 2
+        "higherAttribute": 2,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 2,
@@ -19,7 +21,9 @@
         "velocity": 6,
         "physicalStrength": 3,
         "specialPower": 5,
-        "higherAttribute": 2
+        "higherAttribute": 2,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 3,
@@ -30,7 +34,9 @@
         "velocity": 10,
         "physicalStrength": 4,
         "specialPower": 2,
-        "higherAttribute": 2
+        "higherAttribute": 2,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 4,
@@ -41,7 +47,9 @@
         "velocity": 5,
         "physicalStrength": 6,
         "specialPower": 1,
-        "higherAttribute": 3
+        "higherAttribute": 3,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 5,
@@ -52,7 +60,9 @@
         "velocity": 4,
         "physicalStrength": 7,
         "specialPower": 2,
-        "higherAttribute": 3
+        "higherAttribute": 3,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 6,
@@ -63,7 +73,9 @@
         "velocity": 3,
         "physicalStrength": 5,
         "specialPower": 2,
-        "higherAttribute": 1
+        "higherAttribute": 1,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 7,
@@ -74,7 +86,9 @@
         "velocity": 4,
         "physicalStrength": 1,
         "specialPower": 4,
-        "higherAttribute": 1
+        "higherAttribute": 1,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 8,
@@ -85,7 +99,9 @@
         "velocity": 3,
         "physicalStrength": 5,
         "specialPower": 7,
-        "higherAttribute": 4
+        "higherAttribute": 4,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 9,
@@ -96,7 +112,9 @@
         "velocity": 5,
         "physicalStrength": 1,
         "specialPower": 6,
-        "higherAttribute": 4
+        "higherAttribute": 4,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 10,
@@ -107,7 +125,9 @@
         "velocity": 5,
         "physicalStrength": 5,
         "specialPower": 1,
-        "higherAttribute": 1
+        "higherAttribute": 1,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 11,
@@ -118,7 +138,9 @@
         "velocity": 3,
         "physicalStrength": 4,
         "specialPower": 3,
-        "higherAttribute": 1
+        "higherAttribute": 1,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 12,
@@ -129,7 +151,9 @@
         "velocity": 7,
         "physicalStrength": 3,
         "specialPower": 3,
-        "higherAttribute": 2
+        "higherAttribute": 2,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 13,
@@ -140,7 +164,9 @@
         "velocity": 5,
         "physicalStrength": 1,
         "specialPower": 5,
-        "higherAttribute": 1
+        "higherAttribute": 1,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 14,
@@ -151,7 +177,9 @@
         "velocity": 4,
         "physicalStrength": 5,
         "specialPower": 6,
-        "higherAttribute": 4
+        "higherAttribute": 4,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 15,
@@ -162,7 +190,9 @@
         "velocity": 5,
         "physicalStrength": 1,
         "specialPower": 9,
-        "higherAttribute": 4
+        "higherAttribute": 4,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 16,
@@ -173,7 +203,9 @@
         "velocity": 7,
         "physicalStrength": 4,
         "specialPower": 2,
-        "higherAttribute": 2
+        "higherAttribute": 2,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 17,
@@ -184,7 +216,9 @@
         "velocity": 5,
         "physicalStrength": 6,
         "specialPower": 4,
-        "higherAttribute": 3
+        "higherAttribute": 3,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 18,
@@ -195,7 +229,9 @@
         "velocity": 7,
         "physicalStrength": 1,
         "specialPower": 4,
-        "higherAttribute": 2
+        "higherAttribute": 2,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 19,
@@ -206,7 +242,9 @@
         "velocity": 2,
         "physicalStrength": 9,
         "specialPower": 3,
-        "higherAttribute": 3
+        "higherAttribute": 3,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 20,
@@ -217,7 +255,9 @@
         "velocity": 6,
         "physicalStrength": 2,
         "specialPower": 5,
-        "higherAttribute": 2
+        "higherAttribute": 2,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 21,
@@ -228,7 +268,9 @@
         "velocity": 5,
         "physicalStrength": 3,
         "specialPower": 2,
-        "higherAttribute": 1
+        "higherAttribute": 1,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 22,
@@ -239,7 +281,9 @@
         "velocity": 2,
         "physicalStrength": 3,
         "specialPower": 10,
-        "higherAttribute": 4
+        "higherAttribute": 4,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 23,
@@ -250,7 +294,9 @@
         "velocity": 5,
         "physicalStrength": 5,
         "specialPower": 1,
-        "higherAttribute": 1
+        "higherAttribute": 1,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 24,
@@ -261,7 +307,9 @@
         "velocity": 3,
         "physicalStrength": 8,
         "specialPower": 3,
-        "higherAttribute": 3
+        "higherAttribute": 3,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 25,
@@ -272,7 +320,9 @@
         "velocity": 5,
         "physicalStrength": 6,
         "specialPower": 4,
-        "higherAttribute": 3
+        "higherAttribute": 3,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 26,
@@ -283,7 +333,9 @@
         "velocity": 2,
         "physicalStrength": 10,
         "specialPower": 2,
-        "higherAttribute": 3
+        "higherAttribute": 3,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 27,
@@ -294,7 +346,9 @@
         "velocity": 9,
         "physicalStrength": 4,
         "specialPower": 3,
-        "higherAttribute": 2
+        "higherAttribute": 2,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 28,
@@ -305,7 +359,9 @@
         "velocity": 5,
         "physicalStrength": 6,
         "specialPower": 1,
-        "higherAttribute": 3
+        "higherAttribute": 3,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 29,
@@ -316,7 +372,9 @@
         "velocity": 6,
         "physicalStrength": 2,
         "specialPower": 5,
-        "higherAttribute": 2
+        "higherAttribute": 2,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     },
     {
         "id": 30,
@@ -327,6 +385,8 @@
         "velocity": 2,
         "physicalStrength": 1,
         "specialPower": 5,
-        "higherAttribute": 1
+        "higherAttribute": 1,
+        "info": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+        "collection": "Avengers"
     }
 ]
