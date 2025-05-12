@@ -5,24 +5,30 @@ import "./Character.css";
 //import charactersData from "../../data/characters.json";
 
 // react
-//import React, { useState } from "react";
-//import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // react icons
 //import { BiMap } from "react-icons/bi";
 
 //components
 import { BannerSmall } from "../../components/banner/Banner";
+import { BannerCharacterName } from "../../components/banner/Banner";
 
 function Character() {
+  const navigate = useNavigate();
+
   return (
     <div id="character">
       <div className="character_box">
-        <div className="character_button">
+        <div
+          className="character_button"
+          onClick={() => navigate("/collection")}
+        >
           <img src="/assets/icons/back.png" width={"50%"} alt="" />
         </div>
         <img className="character_card" src="/assets/cards/thanos.png" alt="" />
         <div className="character_information">
+          <BannerCharacterName>{"THANOS"}</BannerCharacterName>
           <div className="character_attributes_box">
             <div className="character_attribute_box">
               <BannerSmall>{"INTELIGÊNCIA"}</BannerSmall>

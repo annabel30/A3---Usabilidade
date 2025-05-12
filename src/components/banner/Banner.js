@@ -17,4 +17,12 @@ const BannerSmall = ({ children }) => {
   )
 }
 
-export { BannerInfo, BannerSmall };
+const BannerCharacterName = ({ children }) => {
+  return (
+    <div className='banner_character_name'>
+      {children}
+    </div>
+  )
+}
+
+export { BannerInfo, BannerSmall, BannerCharacterName };

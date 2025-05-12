@@ -18,6 +18,23 @@
     align-items: center;
 }
 
+.banner_character_name {
+    background-image: url("../../../public/assets/backgrounds/banner.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 17rem;
+    height: 6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: -4rem;
+    font-size: 1.5rem;
+}
+
 .banner_small {
     background-image: url("../../../public/assets/backgrounds/banner.png");
     background-size: contain;
