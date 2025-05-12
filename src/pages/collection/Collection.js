@@ -13,7 +13,11 @@ import { TbFilter } from "react-icons/tb";
 //import { TbFilterOff } from "react-icons/tb";
 
 function Collection() {
-  const [filteredData, setFilteredData] = useState(
+  // const [filteredData, setFilteredData] = useState(
+  //   Object.values(charactersData)
+  // );
+
+  const [filteredData] = useState(
     Object.values(charactersData)
   );
 

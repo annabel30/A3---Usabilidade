@@ -1,0 +1,26 @@
+#game {
+    height: 100vh;
+    background-image: url("../../../public/assets/backgrounds/background_battle.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.game_return_button {
+    background-color: #1A2B84;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0 0 1rem 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

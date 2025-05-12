@@ -28,15 +28,15 @@ function Character() {
 
   const renderBackgroundImage = (rarity) => {
     if (rarity === "Comum") {
-      return "url(/assets/backgrounds/background_character_common.png)";
+      return "url(/assets/backgrounds/background_character_common.jpg)";
     } else if (rarity === "Incomum") {
-      return "url(/assets/backgrounds/background_character_uncommon.png)";
+      return "url(/assets/backgrounds/background_character_uncommon.jpg)";
     } else if (rarity === "Raro") {
-      return "url(/assets/backgrounds/background_character_rare.png)";
+      return "url(/assets/backgrounds/background_character_rare.jpg)";
     } else if (rarity === "Épico") {
-      return "url(/assets/backgrounds/background_character_epic.png)";
+      return "url(/assets/backgrounds/background_character_epic.jpg)";
     } else if (rarity === "Lendário") {
-      return "url(/assets/backgrounds/background_character_legendary.png)";
+      return "url(/assets/backgrounds/background_character_legendary.jpg)";
     }
   };
 

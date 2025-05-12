@@ -5,17 +5,24 @@ import "./Game.css";
 //import charactersData from "../../data/characters.json";
 
 // react
-//import React, { useState } from "react";
-//import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // react icons
 //import { BiMap } from "react-icons/bi";
 
 function Game() {
-    
-    return (
-        <p>Game</p>
-    )
+  const navigate = useNavigate();
+
+  return (
+    <div id="game">
+      <div className="game_return_button" onClick={() => navigate("/")}>
+        <img src="/assets/icons/back.png" width={"50%"} alt="" />
+      </div>
+      <div className="game_">
+
+      </div>
+    </div>
+  );
 }
 
 export default Game;
