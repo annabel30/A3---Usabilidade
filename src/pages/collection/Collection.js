@@ -64,22 +64,22 @@ function Collection() {
         <div className="collecton_box">
           <img
             className="collection_deck_card"
-            src="/assets/cards/thanos.png"
+            src="/assets/cards/1.png"
             alt=""
           />
           <img
             className="collection_deck_card"
-            src="/assets/cards/thanos.png"
+            src="/assets/cards/2.png"
             alt=""
           />
           <img
             className="collection_deck_card"
-            src="/assets/cards/thanos.png"
+            src="/assets/cards/3.png"
             alt=""
           />
           <img
             className="collection_deck_card"
-            src="/assets/cards/thanos.png"
+            src="/assets/cards/4.png"
             alt=""
           />
         </div>

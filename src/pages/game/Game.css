@@ -10,7 +10,7 @@
     justify-content: end;
 }
 
-.game_return_button {
+.game_give_up_button {
     background-color: #1A2B84;
     width: 4rem;
     height: 4rem;
@@ -23,4 +23,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.game_opponent_cardback {
+    position: absolute;
+    width: 6rem;
+    top: 1rem;
+    left: 16rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+}
+
+.game_player_cardback {
+    position: absolute;
+    width: 12rem;
+    bottom: 2rem;
+    left: 25rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    border-radius: 0.5rem;
 }
