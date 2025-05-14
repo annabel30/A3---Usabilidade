@@ -68,10 +68,10 @@ function Game() {
     if (!startGame) return;
 
     if (startedRound === 0) {
-      setModalText("VEZ JOGADOR");
+      setModalText("VEZ JOGADOR")
       // setShowModalAttributes(true);
     } else {
-      setModalText("Turno do oponente escolhendo atributo...");
+      setModalText("VEZ DO OPONENTE")
       // setShowModalAttributes(false);
       setTimeout(() => {
         const randomAttributeIndex = Math.floor(Math.random() * attributes.length);
@@ -147,30 +147,30 @@ function Game() {
     setPlayerCardModel(listCardsPlayer[0])
     setOpponentCardModel(listCardsOpponent[0])
 
-    if (startedRound === 0) {
+    // if (startedRound === 0) {
 
-      setStartedRound(1)
-      setTimeout(() => {
-        setShowModalInstructions(true)
-        setModalText("Your turn to choose!")
-      }, 2000)
-      setTimeout(() => {
-        setShowModalInstructions(false)
-        setSelectedAttribute("")
-        setShowModalAttibutes(true)
-      }, 4000)
-    } else {
+    //   setStartedRound(1)
+    //   setTimeout(() => {
+    //     setShowModalInstructions(true)
+    //     setModalText("Your turn to choose!")
+    //   }, 2000)
+    //   setTimeout(() => {
+    //     setShowModalInstructions(false)
+    //     setSelectedAttribute("")
+    //     setShowModalAttibutes(true)
+    //   }, 4000)
+    // } else {
 
-      setStartedRound(0)
-      setTimeout(() => {
-        setShowModalInstructions(true)
-        setModalText("Opponent's turn to choose!")
-      }, 2000)
-      setTimeout(() => {
-        const randomAttribute = Math.floor(Math.random() * attributes.length);
-        compareAttributes(randomAttribute)
-      }, 4000)
-    }
+    //   setStartedRound(0)
+    //   setTimeout(() => {
+    //     setShowModalInstructions(true)
+    //     setModalText("Opponent's turn to choose!")
+    //   }, 2000)
+    //   setTimeout(() => {
+    //     const randomAttribute = Math.floor(Math.random() * attributes.length);
+    //     compareAttributes(randomAttribute)
+    //   }, 4000)
+    // }
   }
 
   // const nextRound = () => {
@@ -281,8 +281,14 @@ function Game() {
 
         {showModalInstructions && modalText === 'VEZ JOGADOR' && (
           <Modal>
-            <p className='game_modal_instructions'>VOCÊ INICIA A BATALHA.</p>
+            <p className='game_modal_instructions'>SUA VEZ.</p>
             <p className='game_modal_instructions'>ESCOLHA SEUS ATRIBUTOS SABIAMENTE.</p>
+          </Modal>
+        )}
+        {showModalInstructions && modalText === 'VEZ OPONENTE' && (
+          <Modal>
+            <p className='game_modal_instructions'>VEZ DO OPONENTE.</p>
+            <p className='game_modal_instructions'>OPONENTE ESCOLHENDO ATRIBUTOS...</p>
           </Modal>
         )}
 
