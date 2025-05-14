@@ -11,6 +11,9 @@ import React, { useState, useEffect } from 'react'
 // react icons
 //import { BiMap } from "react-icons/bi";
 
+// components
+import { Modal } from '../../components/modal/Modal'
+
 function Game() {
 
   const navigate = useNavigate()
@@ -41,7 +44,7 @@ function Game() {
 
   // text consts
   const [smallModalText, setSmallModalText] = useState("")
-  const [modalText, setModalText] = useState("Flipping coin")
+  const [modalText, setModalText] = useState("")
   const [selectedAttribute, setSelectedAttribute] = useState("")
 
   // lists
@@ -49,33 +52,41 @@ function Game() {
   const attributes = ["Inteligência", "Velocidade", "Força Física", "Poder Especial"]
   const attributesJSON = ["intelligence", "velocity", "physicalStrength", "specialPower"]
 
+  // ----------------------------- OK
   useEffect(() => {
-    initializeCards()
-  }, [totalCards])
+    const playerDeck = cardsSet.slice(0, 4)
+    const opponentDeck = cardsSet.slice(4, 8)
+
+    setListCardsPlayer(playerDeck)
+    setListCardsOpponent(opponentDeck)
+    setPlayerCardModel(playerDeck[0])
+    setOpponentCardModel(opponentDeck[0])
+    setStartGame(true)
+  }, [])
+
+  useEffect(() => {
+    if (!startGame) return;
+
+    if (startedRound === 0) {
+      setModalText("VEZ JOGADOR");
+      // setShowModalAttributes(true);
+    } else {
+      setModalText("Turno do oponente escolhendo atributo...");
+      // setShowModalAttributes(false);
+      setTimeout(() => {
+        const randomAttributeIndex = Math.floor(Math.random() * attributes.length);
+        compareAttributes(randomAttributeIndex);
+      }, 2000);
+    }
+  }, [startedRound, startGame]);
 
   useEffect(() => {
     checkGameStatus()
   }, [listCardsOpponent, listCardsPlayer])
 
   useEffect(() => {
-    if (playerCardModel) {
-      console.log("Deck oponente:", listCardsOpponent)
-      console.log("Deck jogador:", listCardsPlayer)
-
-      console.log("Carta 1 oponente:", opponentCardModel)
-      console.log("Carta 1 jogador:", playerCardModel)
-    }
-  }, [playerCardModel])
-
-  const initializeCards = () => {
-    const playerDeck = cardsSet.slice(0, 4)
-    const opponentDeck = cardsSet.slice(4, 8)
-  
-    setListCardsPlayer(playerDeck)
-    setListCardsOpponent(opponentDeck)
-    setPlayerCardModel(playerDeck[0])
-    setOpponentCardModel(opponentDeck[0])
-  }
+    playRound()
+  }, [playerCardModel, opponentCardModel])
 
   const checkGameStatus = () => {
     if (startGame) {
@@ -156,7 +167,7 @@ function Game() {
         setModalText("Opponent's turn to choose!")
       }, 2000)
       setTimeout(() => {
-        const randomAttribute = Math.floor(Math.random() * 5)
+        const randomAttribute = Math.floor(Math.random() * attributes.length);
         compareAttributes(randomAttribute)
       }, 4000)
     }
@@ -224,7 +235,7 @@ function Game() {
       setPlayerCardModel(newDeck[0]);
       return newDeck;
     });
-  
+
     setListCardsOpponent((prev) => {
       const firstCard = prev[0];
       const newDeck = [...prev.slice(1), firstCard];
@@ -268,6 +279,13 @@ function Game() {
         <img className='game_opponent_cardback' src="/assets/backgrounds/card_back.jpg" alt='' />
         <img className='game_player_cardback' src="/assets/backgrounds/card_back.jpg" alt='' />
 
+        {showModalInstructions && modalText === 'VEZ JOGADOR' && (
+          <Modal>
+            <p className='game_modal_instructions'>VOCÊ INICIA A BATALHA.</p>
+            <p className='game_modal_instructions'>ESCOLHA SEUS ATRIBUTOS SABIAMENTE.</p>
+          </Modal>
+        )}
+
         {showModalInstructions && (
           modalText !== 'You won this round!' &&
           modalText !== 'You lost this round!' &&
@@ -277,6 +295,7 @@ function Game() {
             // </ModalWithStars>
             <p>a</p>
           )}
+
         {showModalInstructions && (
           modalText === 'You won this round!' ||
           modalText === 'You lost this round!' ||

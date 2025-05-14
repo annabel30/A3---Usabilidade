@@ -10,13 +10,12 @@
 
 .modal_content_instructions {
     position: relative;
-    width: 60%;
+    width: 40%;
     max-width: 35rem;
     top: 50%;
     left: 50%;
-    box-shadow: rgba(105, 105, 105, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     transform: translate(-50%, -50%);
-    background-color: var(--boxes);
+    background-color: white;
     padding: 2rem;
 
     display: flex;
@@ -25,5 +24,9 @@
     align-items: center;
     gap: 1rem;
 
-    border: solid 1px #C3B288;
+    border-radius: 1rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+
+    font-size: 25px;
 }
