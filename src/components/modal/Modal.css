@@ -30,3 +30,18 @@
 
     font-size: 25px;
 }
+
+.modal_fixed_right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 99vh;
+    width: 25%;
+    background-color: white;
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+
+    display: flex;
+    justify-content: center;
+}

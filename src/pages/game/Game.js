@@ -12,7 +12,8 @@ import React, { useState, useEffect } from "react";
 //import { BiMap } from "react-icons/bi";
 
 // components
-import { Modal } from "../../components/modal/Modal";
+import { Modal, ModalAttributes } from "../../components/modal/Modal";
+import { BannerInfo } from "../../components/banner/Banner";
 
 function Game() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function Game() {
   const [opponentCardModel, setOpponentCardModel] = useState();
 
   // numbers
-  const [totalCards] = useState(5);
+  const [totalCards] = useState(4);
   const [startedRound, setStartedRound] = useState(
     Math.floor(Math.random() * 2)
   );
@@ -288,6 +289,7 @@ function Game() {
       <div className="game_give_up_button" onClick={gameOver}>
         <img src="/assets/icons/back.png" width={"50%"} alt="" />
       </div>
+      <div className="game_rounds_subtitles">RODADAS</div>
       <div className="game_sidebar_scoreboard">
         {roundResults.map((result, index) => (
           <div
@@ -299,7 +301,7 @@ function Game() {
                 ? "score_square_red"
                 : "score_square_neutral"
             }`}
-          ></div>
+          />
         ))}
       </div>
 
@@ -343,41 +345,41 @@ function Game() {
         )}
 
         {showModalAttibutes && (
-          <Modal>
+          <>
             <img
               className="collection_card"
               src={playerCardModel.cardImage}
               alt={playerCardModel.name}
             />
-            <div className="game_modal_attributes">
-              <p className="game_modal_text">
-                This is your card, choose an attribute to battle!
-              </p>
-              {attributes.map((attribute, index) => (
-                <button
-                  onClick={
-                    selectedAttribute === attribute
-                      ? () => compareAttributes(index)
-                      : () => setSelectedAttribute(attribute)
-                  }
-                  className={
-                    selectedAttribute === attribute
-                      ? "game_modal_attribute_selected"
-                      : "game_modal_attribute"
-                  }
-                  key={index}
-                  value={attribute}
-                >
-                  <div className="game_modal_attribute_button_inline">
-                    {attribute}
-                  </div>
-                </button>
-              ))}
-              {selectedAttribute !== "" && (
-                <p className="game_modal_text">Click again to confirm!</p>
-              )}
-            </div>
-          </Modal>
+            <ModalAttributes>
+              <BannerInfo>{"ESCOLHA UM ATRIBUTO..."}</BannerInfo>
+              <div className="game_modal_attributes">
+                {attributes.map((attribute, index) => (
+                  <button
+                    onClick={
+                      selectedAttribute === attribute
+                        ? () => compareAttributes(index)
+                        : () => setSelectedAttribute(attribute)
+                    }
+                    className={
+                      selectedAttribute === attribute
+                        ? "game_modal_attribute_selected"
+                        : "game_modal_attribute"
+                    }
+                    key={index}
+                    value={attribute}
+                  >
+                    <div className="game_modal_attribute_button_inline">
+                      {attribute}
+                    </div>
+                  </button>
+                ))}
+                {selectedAttribute !== "" && (
+                  <p className="game_modal_text">CLIQUE NOVAMENTE PARA CONFIRMAR!</p>
+                )}
+              </div>
+            </ModalAttributes>
+          </>
         )}
         {comparingCards ? (
           <div className="comparing_box">
