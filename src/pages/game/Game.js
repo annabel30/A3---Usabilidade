@@ -29,7 +29,7 @@ function Game() {
   const [opponentCardModel, setOpponentCardModel] = useState();
 
   // numbers
-  const [totalCards] = useState(10);
+  const [totalCards] = useState(5);
   const [startedRound, setStartedRound] = useState(
     Math.floor(Math.random() * 2)
   );
@@ -49,7 +49,7 @@ function Game() {
   const [selectedAttribute, setSelectedAttribute] = useState("");
 
   // lists
-  const scorePerCards = { 3: 10, 6: 30, 10: 50, 14: 100 };
+  //const scorePerCards = { 3: 10, 6: 30, 10: 50, 14: 100 };
   const attributes = [
     "Inteligência",
     "Velocidade",
@@ -66,6 +66,8 @@ function Game() {
   // variables
   const [playerScore, setPlayerScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0);
+
+  const [roundResults, setRoundResults] = useState(Array(9).fill(null));
 
   useEffect(() => {
     initializeCards();
@@ -108,6 +110,9 @@ function Game() {
         ? "VOCÊ INICIA A BATALHA."
         : "O OPONENTE INICIA A BATALHA."
     );
+
+    console.log(playerDeck);
+    console.log(opponentDeck);
 
     setStartGame(true);
     setShowModalInstructions(true);
@@ -232,6 +237,29 @@ function Game() {
     } else if (winner === "computer") {
       setOpponentScore((score) => score + 1);
     }
+
+    setRoundResults((prev) => {
+      const next = [...prev];
+      const index = next.findIndex((r) => r === null);
+      if (index !== -1) next[index] = winner;
+
+      // Verifica se foi a 9ª rodada
+      const isGameOver = next.filter((r) => r !== null).length === 9;
+      if (isGameOver) {
+        setTimeout(() => {
+          navigate("/end", {
+            state: {
+              playerScore: winner === "player" ? playerScore + 1 : playerScore,
+              opponentScore:
+                winner === "computer" ? opponentScore + 1 : opponentScore,
+            },
+          });
+        }, 2000); // dá um tempo para mostrar o modal final
+      }
+
+      return next;
+    });
+
     shiftCardsRound();
   };
 
@@ -260,6 +288,21 @@ function Game() {
       <div className="game_give_up_button" onClick={gameOver}>
         <img src="/assets/icons/back.png" width={"50%"} alt="" />
       </div>
+      <div className="game_sidebar_scoreboard">
+        {roundResults.map((result, index) => (
+          <div
+            key={index}
+            className={`score_square ${
+              result === "player"
+                ? "score_square_green"
+                : result === "computer"
+                ? "score_square_red"
+                : "score_square_neutral"
+            }`}
+          ></div>
+        ))}
+      </div>
+
       <div className="game_page">
         <img
           className="game_opponent_cardback"

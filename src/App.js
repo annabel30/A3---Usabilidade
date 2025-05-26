@@ -8,6 +8,7 @@ import Collection from './pages/collection/Collection'
 import Store from './pages/store/Store'
 import Character from './pages/character/Character'
 import Game from './pages/game/Game'
+import EndGame from './pages/endGame/EndGame'
 
 //components
 import Navbar from './components/navbar/Navbar'
@@ -22,6 +23,7 @@ function App() {
           <Route path='/store' element={<><Navbar /><Store /></>} />
           <Route path='/character/:name' element={<Character />} />
           <Route path='/game' element={<Game />} />
+          <Route path="/end" element={<EndGame />} />
         </Routes>
       </BrowserRouter>
     </div>

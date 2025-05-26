@@ -1,0 +1,29 @@
+#endgame {
+  height: 100vh;
+  background-image: url("../../../public/assets/backgrounds/background_battle.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.endgame_container h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.endgame_container button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #4caf50;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
