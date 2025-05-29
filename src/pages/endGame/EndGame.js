@@ -5,10 +5,7 @@ import "./EndGame.css";
 function EndGame() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { playerScore, opponentScore } = location.state || {
-    playerScore: 0,
-    opponentScore: 0,
-  };
+  const { playerScore = 0, opponentScore = 0 } = location.state || {};
 
   const getResultMessage = () => {
     if (playerScore > opponentScore) return "Você venceu!";

@@ -62,7 +62,34 @@ function Game() {
   const [roundResults, setRoundResults] = useState(Array(9).fill(null));
 
   useEffect(() => {
-    initializeCards();
+    // Tentar carregar deck salvo do localStorage
+    const savedDeck = localStorage.getItem("playerDeck");
+    if (savedDeck) {
+      // Se tiver deck salvo, parse e usa
+      const playerDeckFromStorage = JSON.parse(savedDeck);
+
+      // Para o oponente, embaralha normalmente e pega 4 cartas diferentes
+      let opponentDeck = [...cardsSet];
+      opponentDeck = opponentDeck.filter(
+        (card) => !playerDeckFromStorage.some((c) => c.name === card.name)
+      );
+      opponentDeck.sort(() => Math.random() - 0.5);
+      opponentDeck = opponentDeck.slice(0, totalCards);
+
+      setListCardsPlayer(playerDeckFromStorage);
+      setListCardsOpponent(opponentDeck);
+
+      setModalText(
+        startedRound === 0
+          ? "VOCÊ INICIA A BATALHA."
+          : "O OPONENTE INICIA A BATALHA."
+      );
+
+      setShowModalInstructions(true);
+      playRound();
+    } else {
+      initializeCards();
+    }
   }, [totalCards]);
 
   const initializeCards = () => {
@@ -86,9 +113,6 @@ function Game() {
         ? "VOCÊ INICIA A BATALHA."
         : "O OPONENTE INICIA A BATALHA."
     );
-
-    console.log(playerDeck);
-    console.log(opponentDeck);
 
     setShowModalInstructions(true);
     playRound();
@@ -155,7 +179,7 @@ function Game() {
   const nextRound = () => {
     setShowSmallodalAttibutes(false);
     shiftCardsRound(); // só isso aqui
-    playRound()
+    playRound();
   };
 
   const compareAttributes = (chosenAtt) => {
@@ -222,7 +246,7 @@ function Game() {
                 winner === "computer" ? opponentScore + 1 : opponentScore,
             },
           });
-        }, 2000);
+        }, 1000);
       }
 
       return next;

@@ -51,6 +51,8 @@
 .collection_card {
     height: 11rem;
     border-radius: 0.25rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
 }
 
 .collection_deck {
@@ -80,6 +82,8 @@
     width: 70%;
     border-radius: 0.25rem;
     overflow-y: scroll;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
 }
 
 .collection_button {
@@ -96,4 +100,28 @@
     border: 1px solid black;
     color: white;
     text-align: center;
+}
+
+.collection_card_wrapper.selected {
+  border: 3px solid #ff69b4; /* rosa vivo para destacar */
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff69b4;
+  transition: all 0.3s ease;
+}
+
+.collection_plus_button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ffdd00; /* amarelo */
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: self-end;
+  border-radius: 0 0.25rem 0 0.25rem;
+  border: 1px solid black;
 }
