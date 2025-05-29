@@ -22,10 +22,6 @@ function Game() {
   const [listCardsPlayer, setListCardsPlayer] = useState([]);
   const [listCardsOpponent, setListCardsOpponent] = useState([]);
 
-  // model cards
-  const [playerCardModel, setPlayerCardModel] = useState();
-  const [opponentCardModel, setOpponentCardModel] = useState();
-
   // numbers
   const [totalCards] = useState(4);
   // const [startedRound, setStartedRound] = useState(
@@ -84,8 +80,6 @@ function Game() {
 
     setListCardsPlayer(playerDeck);
     setListCardsOpponent(opponentDeck);
-    setPlayerCardModel(deckCards[0]);
-    setOpponentCardModel(deckCards[1]);
 
     setModalText(
       startedRound === 0
@@ -133,8 +127,6 @@ function Game() {
 
   const playRound = () => {
     setShowModalInstructions(true);
-    // setPlayerCardModel(listCardsPlayer[0]);
-    // setOpponentCardModel(listCardsOpponent[0]);
 
     if (startedRound === 0) {
       setStartedRound(1);
@@ -162,7 +154,8 @@ function Game() {
 
   const nextRound = () => {
     setShowSmallodalAttibutes(false);
-    playRound();
+    shiftCardsRound(); // só isso aqui
+    playRound()
   };
 
   const compareAttributes = (chosenAtt) => {
@@ -184,8 +177,6 @@ function Game() {
       attributeComputerValue
     );
 
-    setPlayerCardModel(playerCard);
-    setOpponentCardModel(opponentCard);
     setAttributeChosen(attributeName);
     setUserAttributeValue(attributeUserValue);
     setOpponentAttributeValue(attributeComputerValue);
@@ -240,22 +231,6 @@ function Game() {
     shiftCardsRound();
   };
 
-  // const shiftCardsRound = () => {
-  //   setListCardsPlayer((prevDeck) => {
-  //     if (prevDeck.length <= 1) return prevDeck;
-  //     return [...prevDeck.slice(1), prevDeck[0]];
-  //   });
-
-  //   setListCardsOpponent((prevDeck) => {
-  //     if (prevDeck.length <= 1) return prevDeck;
-  //     return [...prevDeck.slice(1), prevDeck[0]];
-  //   });
-  //   setTimeout(() => {
-  //     setPlayerCardModel(listCardsPlayer[0]);
-  //     setOpponentCardModel(listCardsOpponent[0]);
-  //   }, 10);
-  // };
-
   const shiftCardsRound = () => {
     const newDeckPlayer = [...listCardsPlayer.slice(1), listCardsPlayer[0]];
     const newDeckOpponent = [
@@ -265,10 +240,6 @@ function Game() {
 
     setListCardsPlayer(newDeckPlayer);
     setListCardsOpponent(newDeckOpponent);
-
-    // IMPORTANTE: atualiza os models com o novo topo
-    setPlayerCardModel(newDeckPlayer[0]);
-    setOpponentCardModel(newDeckOpponent[0]);
   };
 
   const gameOver = () => {
@@ -307,49 +278,26 @@ function Game() {
           src="/assets/backgrounds/card_back.jpg"
           alt=""
         />
-        {showModalInstructions &&
-          modalText !== "VOCÊ GANHOU A RODADA!" &&
-          modalText !== "VOCÊ PERDEU A RODADA!" &&
-          modalText !== "EMPATE!" && (
-            <Modal>
-              <p className="game_modal_instructions">{modalText}</p>
-            </Modal>
-          )}
-        {showModalInstructions &&
-          (modalText === "VOCÊ GANHOU A RODADA!" ||
-            modalText === "VOCÊ PERDEU A RODADA!" ||
-            modalText === "EMPATE!") && (
-            <Modal>
-              <p className="game_modal_instructions">{modalText}</p>
-            </Modal>
-          )}
+        {showModalInstructions && (
+          <Modal>
+            <p className="game_modal_instructions">{modalText}</p>
+          </Modal>
+        )}
 
         {showSmallModalAttibutes && (
           <>
-            {opponentCardModel && (
-              <>
-                <div className="game_opponent_card_text">OPONENTE</div>
-                <img
-                  className="game_opponent_cardfront"
-                  // src={opponentCardModel.cardImage}
-                  src={listCardsOpponent[0]?.cardImage}
-                  alt={opponentCardModel.name}
-                  key={opponentCardModel.id}
-                />
-              </>
-            )}
-            {playerCardModel && (
-              <>
-                <div className="game_player_card_text">SUA CARTA</div>
-                <img
-                  className="game_player_cardfront"
-                  // src={playerCardModel.cardImage}
-                  src={listCardsPlayer[0]?.cardImage}
-                  alt={playerCardModel.name}
-                  key={playerCardModel.id}
-                />
-              </>
-            )}
+            <div className="game_opponent_card_text">OPONENTE</div>
+            <img
+              className="game_opponent_cardfront"
+              src={listCardsOpponent[0]?.cardImage}
+              alt={listCardsOpponent[0]?.name}
+            />
+            <div className="game_player_card_text">SUA CARTA</div>
+            <img
+              className="game_player_cardfront"
+              src={listCardsPlayer[0]?.cardImage}
+              alt={listCardsPlayer[0]?.name}
+            />
             <SideModal>
               <BannerInfo>{"ATRIBUTO ESCOLHIDO:"}</BannerInfo>
               <div className="game_modal_attributes">
@@ -375,15 +323,11 @@ function Game() {
 
         {showModalAttibutes && (
           <>
-            {playerCardModel && (
-              <img
-                className="game_player_cardback"
-                // src={playerCardModel.cardImage}
-                src={listCardsPlayer[0]?.cardImage}
-                alt={playerCardModel.name}
-                key={playerCardModel.id}
-              />
-            )}
+            <img
+              className="game_player_cardback"
+              src={listCardsPlayer[0]?.cardImage}
+              alt={listCardsPlayer[0]?.name}
+            />
             <SideModal>
               <BannerInfo>{"ESCOLHA UM ATRIBUTO..."}</BannerInfo>
               <div className="game_modal_attributes_options">
