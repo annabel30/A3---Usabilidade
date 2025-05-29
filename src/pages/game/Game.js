@@ -8,11 +8,8 @@ import cardsData from "../../data/cards.json";
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
-// react icons
-//import { BiMap } from "react-icons/bi";
-
 // components
-import { Modal, ModalAttributes } from "../../components/modal/Modal";
+import { Modal, SideModal } from "../../components/modal/Modal";
 import { BannerInfo } from "../../components/banner/Banner";
 
 function Game() {
@@ -31,9 +28,10 @@ function Game() {
 
   // numbers
   const [totalCards] = useState(4);
-  const [startedRound, setStartedRound] = useState(
-    Math.floor(Math.random() * 2)
-  );
+  // const [startedRound, setStartedRound] = useState(
+  //   Math.floor(Math.random() * 2)
+  // );
+  const [startedRound, setStartedRound] = useState(0);
 
   // booleans
   const [startGame, setStartGame] = useState(false);
@@ -52,10 +50,10 @@ function Game() {
   // lists
   //const scorePerCards = { 3: 10, 6: 30, 10: 50, 14: 100 };
   const attributes = [
-    "Inteligência",
-    "Velocidade",
-    "Força Física",
-    "Poder Especial",
+    "INTELIGÊNCIA",
+    "VELOCIDADE",
+    "FORÇA FÍSICA",
+    "PODER ESPECIAL",
   ];
   const attributesJSON = [
     "intelligence",
@@ -67,6 +65,9 @@ function Game() {
   // variables
   const [playerScore, setPlayerScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0);
+  const [attributeChosen, setAttributeChosen] = useState("");
+  const [userAttributeValue, setUserAttributeValue] = useState();
+  const [opponentAttributeValue, setOpponentAttributeValue] = useState();
 
   const [roundResults, setRoundResults] = useState(Array(9).fill(null));
 
@@ -75,18 +76,14 @@ function Game() {
   }, [totalCards]);
 
   // useEffect(() => {
-  //   checkGameStatus();
-  // }, [listCardsOpponent, listCardsPlayer]);
-
-  useEffect(() => {
-    if (
-      startGame &&
-      listCardsPlayer.length > 0 &&
-      listCardsOpponent.length > 0
-    ) {
-      playRound();
-    }
-  }, [startGame, listCardsPlayer, listCardsOpponent]);
+  //   if (
+  //     startGame &&
+  //     listCardsPlayer.length > 0 &&
+  //     listCardsOpponent.length > 0
+  //   ) {
+  //     playRound();
+  //   }
+  // }, [startGame, listCardsPlayer, listCardsOpponent]);
 
   const initializeCards = () => {
     let deckCards = [...cardsSet];
@@ -117,17 +114,8 @@ function Game() {
 
     setStartGame(true);
     setShowModalInstructions(true);
+    playRound();
   };
-
-  // const checkGameStatus = () => {
-  //   if (startGame) {
-  //     if (listCardsOpponent.length === 0) {
-  //       handleEndGame("Parabéns! Você ganhou o jogo!");
-  //     } else if (listCardsPlayer.length === 0) {
-  //       handleEndGame("Que pena! Você perdeu o jogo!");
-  //     }
-  //   }
-  // };
 
   // const handleEndGame = (message) => {
   //   // setSmallModalText(true);
@@ -163,8 +151,8 @@ function Game() {
   const playRound = () => {
     setShowModalInstructions(true);
     setComparingCards(false);
-    setPlayerCardModel(listCardsPlayer[0]);
-    setOpponentCardModel(listCardsOpponent[0]);
+    // setPlayerCardModel(listCardsPlayer[0]);
+    // setOpponentCardModel(listCardsOpponent[0]);
 
     if (startedRound === 0) {
       setStartedRound(1);
@@ -191,6 +179,7 @@ function Game() {
   };
 
   const nextRound = () => {
+    setShowSmallodalAttibutes(false);
     setIsButtonHidden(true);
     playRound();
   };
@@ -198,37 +187,46 @@ function Game() {
   const compareAttributes = (chosenAtt) => {
     setShowModalInstructions(false);
     setShowModalAttibutes(false);
-    setPlayerCardModel(listCardsPlayer[0]);
-    setOpponentCardModel(listCardsOpponent[0]);
 
-    const attributeChosen = attributesJSON[chosenAtt];
-    const attributeUserValue = listCardsPlayer[0]?.[attributeChosen] ?? 0;
-    const attributeComputerValue = listCardsOpponent[0]?.[attributeChosen] ?? 0;
+    const playerCard = listCardsPlayer[0];
+    const opponentCard = listCardsOpponent[0];
+
+    const attributeKey = attributesJSON[chosenAtt];
+    const attributeName = attributes[chosenAtt];
+    const attributeUserValue = playerCard?.[attributeKey] ?? 0;
+    const attributeComputerValue = opponentCard?.[attributeKey] ?? 0;
+
+    console.log(
+      playerCard,
+      attributeName,
+      attributeUserValue,
+      attributeComputerValue
+    );
+
+    setPlayerCardModel(playerCard);
+    setOpponentCardModel(opponentCard);
+    setAttributeChosen(attributeName);
+    setUserAttributeValue(attributeUserValue);
+    setOpponentAttributeValue(attributeComputerValue);
 
     setComparingCards(true);
-    setSmallModalText(
-      `Attribute: ${attributes[chosenAtt]}. Yours: ${attributeUserValue}. Opponent's: ${attributeComputerValue}.`
-    );
+
+    let winner = null;
+
+    if (attributeUserValue > attributeComputerValue) {
+      winner = "player";
+      setModalText("VOCÊ GANHOU A RODADA!");
+    } else if (attributeUserValue < attributeComputerValue) {
+      winner = "computer";
+      setModalText("VOCÊ PERDEU A RODADA!");
+    } else {
+      setModalText("EMPATE!");
+    }
+
     setShowSmallodalAttibutes(true);
 
     setTimeout(() => {
-      let winner = null;
-
-      if (attributeUserValue > attributeComputerValue) {
-        winner = "player";
-        setModalText("VOCÊ GANHOU A RODADA!");
-      } else if (attributeUserValue < attributeComputerValue) {
-        winner = "computer";
-        setModalText("VOCÊ PERDEU A RODADA!");
-      } else {
-        setModalText("EMPATE!");
-      }
-
       handleRoundResult(winner);
-
-      setShowSmallodalAttibutes(false);
-      setShowModalInstructions(true);
-      setIsButtonHidden(false);
     }, 4000);
   };
 
@@ -244,7 +242,6 @@ function Game() {
       const index = next.findIndex((r) => r === null);
       if (index !== -1) next[index] = winner;
 
-      // Verifica se foi a 9ª rodada
       const isGameOver = next.filter((r) => r !== null).length === 9;
       if (isGameOver) {
         setTimeout(() => {
@@ -255,7 +252,7 @@ function Game() {
                 winner === "computer" ? opponentScore + 1 : opponentScore,
             },
           });
-        }, 2000); // dá um tempo para mostrar o modal final
+        }, 2000);
       }
 
       return next;
@@ -317,43 +314,79 @@ function Game() {
           alt=""
         />
         {showModalInstructions &&
-          modalText !== "You won this round!" &&
-          modalText !== "You lost this round!" &&
-          modalText !== "The round ended in a draw!" && (
+          modalText !== "VOCÊ GANHOU A RODADA!" &&
+          modalText !== "VOCÊ PERDEU A RODADA!" &&
+          modalText !== "EMPATE!" && (
             <Modal>
               <p className="game_modal_instructions">{modalText}</p>
             </Modal>
           )}
         {showModalInstructions &&
-          (modalText === "You won this round!" ||
-            modalText === "You lost this round!" ||
-            modalText === "The round ended in a draw!") && (
+          (modalText === "VOCÊ GANHOU A RODADA!" ||
+            modalText === "VOCÊ PERDEU A RODADA!" ||
+            modalText === "EMPATE!") && (
             <Modal>
               <p className="game_modal_instructions">{modalText}</p>
-              {isButtonHidden ? null : (
-                <button className="game_button_design" onClick={nextRound}>
-                  <div className="game_button_design_inline">Next round</div>
-                </button>
-              )}
             </Modal>
           )}
 
         {showSmallModalAttibutes && (
-          <Modal>
-            <p>{smallModalText}</p>
-          </Modal>
+          <>
+            {opponentCardModel && (
+              <>
+                <div className="game_opponent_card_text">OPONENTE</div>
+                <img
+                  className="game_opponent_cardfront"
+                  src={opponentCardModel.cardImage}
+                  alt={opponentCardModel.name}
+                />
+              </>
+            )}
+            {playerCardModel && (
+              <>
+                <div className="game_player_card_text">SUA CARTA</div>
+                <img
+                  className="game_player_cardfront"
+                  src={playerCardModel.cardImage}
+                  alt={playerCardModel.name}
+                />
+              </>
+            )}
+            <SideModal>
+              <BannerInfo>{"ATRIBUTO ESCOLHIDO:"}</BannerInfo>
+              <div className="game_modal_attributes">
+                <p>{attributeChosen}</p>
+                <div className="game_modal_box">
+                  <div className="game_modal_line">
+                    <p>VOCÊ:</p>
+                    <p>{userAttributeValue}</p>
+                  </div>
+                  <div className="game_modal_line">
+                    <p>OPONENTE:</p>
+                    <p>{opponentAttributeValue}</p>
+                  </div>
+                </div>
+                <p>{modalText}</p>
+                <button onClick={nextRound} className="game_modal_attribute">
+                  PRÓXIMA RODADA
+                </button>
+              </div>
+            </SideModal>
+          </>
         )}
 
         {showModalAttibutes && (
           <>
-            <img
-              className="collection_card"
-              src={playerCardModel.cardImage}
-              alt={playerCardModel.name}
-            />
-            <ModalAttributes>
+            {playerCardModel && (
+              <img
+                className="game_player_cardback"
+                src={playerCardModel.cardImage}
+                alt={playerCardModel.name}
+              />
+            )}
+            <SideModal>
               <BannerInfo>{"ESCOLHA UM ATRIBUTO..."}</BannerInfo>
-              <div className="game_modal_attributes">
+              <div className="game_modal_attributes_options">
                 {attributes.map((attribute, index) => (
                   <button
                     onClick={
@@ -375,43 +408,13 @@ function Game() {
                   </button>
                 ))}
                 {selectedAttribute !== "" && (
-                  <p className="game_modal_text">CLIQUE NOVAMENTE PARA CONFIRMAR!</p>
+                  <p className="game_modal_text">
+                    CLIQUE NOVAMENTE PARA CONFIRMAR!
+                  </p>
                 )}
               </div>
-            </ModalAttributes>
+            </SideModal>
           </>
-        )}
-        {comparingCards ? (
-          <div className="comparing_box">
-            <div className="game_card_flip lalala">
-              {playerCardModel && (
-                <img
-                  className="collection_card"
-                  src={playerCardModel.cardImage}
-                  alt={playerCardModel.name}
-                />
-              )}
-            </div>
-            <div className="game_card_flip lalala">
-              {opponentCardModel && (
-                <img
-                  className="collection_card"
-                  src={opponentCardModel.cardImage}
-                  alt={opponentCardModel.name}
-                />
-              )}
-            </div>
-          </div>
-        ) : (
-          <div className="game_card_flip">
-            {playerCardModel && (
-              <img
-                className="collection_card"
-                src={playerCardModel.cardImage}
-                alt={playerCardModel.name}
-              />
-            )}
-          </div>
         )}
       </div>
     </div>

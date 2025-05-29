@@ -9,8 +9,8 @@ const Modal = ({ children }) => {
   );
 };
 
-const ModalAttributes = ({ children }) => {
+const SideModal = ({ children }) => {
   return <div className="modal_fixed_right">{children}</div>;
 };
 
-export { Modal, ModalAttributes };
+export { Modal, SideModal };

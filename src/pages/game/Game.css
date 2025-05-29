@@ -45,16 +45,71 @@
     border-radius: 0.5rem;
 }
 
+.game_opponent_cardfront {
+    position: absolute;
+    width: 12rem;
+    top: 1rem;
+    left: 12rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    z-index: 100;
+}
+
+.game_player_cardfront {
+    position: absolute;
+    width: 12rem;
+    bottom: 2rem;
+    left: 25rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    z-index: 100;
+}
+
+.game_opponent_card_text {
+    background-color: white;
+    border-radius: 0.4rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    padding: 0.25rem;
+    position: absolute;
+    left: 16rem;
+    bottom: 3rem;
+}
+
+.game_player_card_text {
+    background-color: white;
+    border-radius: 0.4rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    padding: 0.25rem;
+    position: absolute;
+    left: 28.5rem;
+    top: 2rem;
+}
+
 .game_modal_instructions {
     text-align: center;
+}
+
+.game_modal_attributes_options {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
 }
 
 .game_modal_attributes {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 2.5rem;
     padding-bottom: 2rem;
+    font-size: 20px;
 }
 
 .game_modal_attribute {
@@ -82,6 +137,16 @@
     position: absolute;
     top: 5.5rem;
     right: 2.5rem;
+}
+
+.game_modal_box {
+    width: 100%;
+}
+
+.game_modal_line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /* ---------------------------------------------- */
