@@ -6,7 +6,7 @@ import cardsData from "../../data/cards.json";
 
 // react
 import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // components
 import { Modal, SideModal } from "../../components/modal/Modal";
@@ -34,21 +34,15 @@ function Game() {
   const [startedRound, setStartedRound] = useState(0);
 
   // booleans
-  const [startGame, setStartGame] = useState(false);
-  const [isButtonHidden, setIsButtonHidden] = useState(false);
-  const [comparingCards, setComparingCards] = useState(false);
-
   const [showModalInstructions, setShowModalInstructions] = useState(false);
   const [showModalAttibutes, setShowModalAttibutes] = useState(false);
   const [showSmallModalAttibutes, setShowSmallodalAttibutes] = useState(false);
 
   // text consts
-  const [smallModalText, setSmallModalText] = useState("");
   const [modalText, setModalText] = useState("");
   const [selectedAttribute, setSelectedAttribute] = useState("");
 
   // lists
-  //const scorePerCards = { 3: 10, 6: 30, 10: 50, 14: 100 };
   const attributes = [
     "INTELIGÊNCIA",
     "VELOCIDADE",
@@ -74,16 +68,6 @@ function Game() {
   useEffect(() => {
     initializeCards();
   }, [totalCards]);
-
-  // useEffect(() => {
-  //   if (
-  //     startGame &&
-  //     listCardsPlayer.length > 0 &&
-  //     listCardsOpponent.length > 0
-  //   ) {
-  //     playRound();
-  //   }
-  // }, [startGame, listCardsPlayer, listCardsOpponent]);
 
   const initializeCards = () => {
     let deckCards = [...cardsSet];
@@ -112,7 +96,6 @@ function Game() {
     console.log(playerDeck);
     console.log(opponentDeck);
 
-    setStartGame(true);
     setShowModalInstructions(true);
     playRound();
   };
@@ -150,7 +133,6 @@ function Game() {
 
   const playRound = () => {
     setShowModalInstructions(true);
-    setComparingCards(false);
     // setPlayerCardModel(listCardsPlayer[0]);
     // setOpponentCardModel(listCardsOpponent[0]);
 
@@ -180,7 +162,6 @@ function Game() {
 
   const nextRound = () => {
     setShowSmallodalAttibutes(false);
-    setIsButtonHidden(true);
     playRound();
   };
 
@@ -209,8 +190,6 @@ function Game() {
     setUserAttributeValue(attributeUserValue);
     setOpponentAttributeValue(attributeComputerValue);
 
-    setComparingCards(true);
-
     let winner = null;
 
     if (attributeUserValue > attributeComputerValue) {
@@ -223,11 +202,11 @@ function Game() {
       setModalText("EMPATE!");
     }
 
-    setShowSmallodalAttibutes(true);
-
     setTimeout(() => {
       handleRoundResult(winner);
     }, 4000);
+
+    setShowSmallodalAttibutes(true);
   };
 
   const handleRoundResult = (winner) => {
@@ -261,20 +240,35 @@ function Game() {
     shiftCardsRound();
   };
 
-  const shiftCardsRound = () => {
-    setListCardsPlayer((prevDeck) => {
-      if (prevDeck.length <= 1) return prevDeck;
-      return [...prevDeck.slice(1), prevDeck[0]];
-    });
+  // const shiftCardsRound = () => {
+  //   setListCardsPlayer((prevDeck) => {
+  //     if (prevDeck.length <= 1) return prevDeck;
+  //     return [...prevDeck.slice(1), prevDeck[0]];
+  //   });
 
-    setListCardsOpponent((prevDeck) => {
-      if (prevDeck.length <= 1) return prevDeck;
-      return [...prevDeck.slice(1), prevDeck[0]];
-    });
-    setTimeout(() => {
-      setPlayerCardModel(listCardsPlayer[0]);
-      setOpponentCardModel(listCardsOpponent[0]);
-    }, 0);
+  //   setListCardsOpponent((prevDeck) => {
+  //     if (prevDeck.length <= 1) return prevDeck;
+  //     return [...prevDeck.slice(1), prevDeck[0]];
+  //   });
+  //   setTimeout(() => {
+  //     setPlayerCardModel(listCardsPlayer[0]);
+  //     setOpponentCardModel(listCardsOpponent[0]);
+  //   }, 10);
+  // };
+
+  const shiftCardsRound = () => {
+    const newDeckPlayer = [...listCardsPlayer.slice(1), listCardsPlayer[0]];
+    const newDeckOpponent = [
+      ...listCardsOpponent.slice(1),
+      listCardsOpponent[0],
+    ];
+
+    setListCardsPlayer(newDeckPlayer);
+    setListCardsOpponent(newDeckOpponent);
+
+    // IMPORTANTE: atualiza os models com o novo topo
+    setPlayerCardModel(newDeckPlayer[0]);
+    setOpponentCardModel(newDeckOpponent[0]);
   };
 
   const gameOver = () => {
@@ -337,8 +331,10 @@ function Game() {
                 <div className="game_opponent_card_text">OPONENTE</div>
                 <img
                   className="game_opponent_cardfront"
-                  src={opponentCardModel.cardImage}
+                  // src={opponentCardModel.cardImage}
+                  src={listCardsOpponent[0]?.cardImage}
                   alt={opponentCardModel.name}
+                  key={opponentCardModel.id}
                 />
               </>
             )}
@@ -347,8 +343,10 @@ function Game() {
                 <div className="game_player_card_text">SUA CARTA</div>
                 <img
                   className="game_player_cardfront"
-                  src={playerCardModel.cardImage}
+                  // src={playerCardModel.cardImage}
+                  src={listCardsPlayer[0]?.cardImage}
                   alt={playerCardModel.name}
+                  key={playerCardModel.id}
                 />
               </>
             )}
@@ -380,8 +378,10 @@ function Game() {
             {playerCardModel && (
               <img
                 className="game_player_cardback"
-                src={playerCardModel.cardImage}
+                // src={playerCardModel.cardImage}
+                src={listCardsPlayer[0]?.cardImage}
                 alt={playerCardModel.name}
+                key={playerCardModel.id}
               />
             )}
             <SideModal>
