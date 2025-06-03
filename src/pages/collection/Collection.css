@@ -37,7 +37,7 @@
 }
 
 .collection_container {
-    width: 42%;
+    width: 45%;
     height: auto;
 
     display: flex;
@@ -45,7 +45,7 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     background-attachment: fixed;
-    margin-right: 10rem;
+    margin-right: 9rem;
 }
 
 .collection_card {
@@ -103,7 +103,7 @@
 }
 
 .collection_card_wrapper.selected {
-  border: 3px solid #ff69b4; /* rosa vivo para destacar */
+  border: 1px solid #ff69b4; /* rosa vivo para destacar */
   border-radius: 8px;
   box-shadow: 0 0 10px #ff69b4;
   transition: all 0.3s ease;

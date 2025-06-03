@@ -2,13 +2,14 @@
 import "./Navbar.css";
 
 // react
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
-  
+
   const navigate = useNavigate();
   const [selectedIcon, setSelectedIcon] = useState("BATALHA");
+  const [coins, setCoins] = useState(0);
 
   const icons = [
     {
@@ -39,6 +40,15 @@ function Navbar() {
     navigate(option.path);
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const storedCoins = parseInt(localStorage.getItem("coins") || "0", 10);
+      setCoins(storedCoins);
+    }, 500); // checa a cada 0.5 segundo
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <div id="navbar">
@@ -60,7 +70,7 @@ function Navbar() {
               width={"25px"}
               height={"25px"}
             />
-            <div className="navbar_profile_info">6500</div>
+            <div className="navbar_profile_info">{coins}</div>
           </div>
         </div>
         <div className="navbar_options_box">
@@ -78,9 +88,8 @@ function Navbar() {
               <p>{option.name}</p>
               <img
                 src={option.icon}
-                className={`navbar_icon ${
-                  selectedIcon === option.name ? "selected" : "unselected"
-                }`}
+                className={`navbar_icon ${selectedIcon === option.name ? "selected" : "unselected"
+                  }`}
                 alt={option.name}
                 width="25px"
                 height="25px"

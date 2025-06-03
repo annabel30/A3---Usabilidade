@@ -5,7 +5,7 @@ import "./Battle.css";
 //import charactersData from "../../data/characters.json";
 
 // react
-//import React, { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // react icons
@@ -16,6 +16,16 @@ import { BannerInfo } from "../../components/banner/Banner";
 
 function Battle() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const hasInitialized = localStorage.getItem("hasInitialized");
+
+    if (!hasInitialized) {
+      localStorage.setItem("coins", "20");
+      localStorage.setItem("ownedCards", JSON.stringify([]));
+      localStorage.setItem("hasInitialized", "true");
+    }
+  }, []);
 
   const levels = [
     {

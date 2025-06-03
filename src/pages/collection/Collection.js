@@ -22,6 +22,12 @@ function Collection() {
     return savedDeck ? JSON.parse(savedDeck) : [];
   });
 
+  const getOwnedCards = () => {
+    return JSON.parse(localStorage.getItem("ownedCards")) || [];
+  };
+
+  const ownedCards = getOwnedCards();
+
   // Função para adicionar ou remover carta do deck
   const toggleCardInDeck = (card) => {
     const alreadyInDeck = playerDeck.find((c) => c.name === card.name);
@@ -77,31 +83,39 @@ function Collection() {
         />
       </div>
       <div className="collection_container">
-        {filteredData.map((item) => (
-          <div
-            key={item.name}
-            className={`collection_card_wrapper ${
-              isInDeck(item) ? "selected" : ""
-            }`}
-            onClick={() => toggleCardInDeck(item)}
-            style={{ cursor: "pointer", position: "relative" }}
-          >
-            <img
-              className="collection_card"
-              src={item.cardImage}
-              alt={item.name}
-              title={item.name}
-            />
-            <Link to={`/character/${item.name}`}>
-              <button
-                className="collection_plus_button"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <span>+</span>
-              </button>
-            </Link>
-          </div>
-        ))}
+        {filteredData.map((item) => {
+          const hasCard = ownedCards.includes(item.name);
+          return (
+            <div
+              key={item.name}
+              className={`collection_card_wrapper ${isInDeck(item) ? "selected" : ""} ${!hasCard ? "locked" : ""}`}
+              onClick={() => hasCard && toggleCardInDeck(item)}
+              style={{ cursor: hasCard ? "pointer" : "not-allowed", position: "relative" }}
+            >
+              <img
+                className="collection_card"
+                src={item.cardImage}
+                alt={item.name}
+                title={item.name}
+                style={{ filter: hasCard ? "none" : "grayscale(100%) brightness(0.5)" }}
+              />
+              {hasCard ? (
+                <Link to={`/character/${item.name}`}>
+                  <button
+                    className="collection_plus_button"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span>+</span>
+                  </button>
+                </Link>
+              ) : (
+                <a href="#" onClick={(e) => e.preventDefault()}>
+                  {/* sem botão se não tiver carta */}
+                </a>
+              )}
+            </div>
+          );
+        })}
       </div>
       <div className="collection_deck">
         <div className="collecton_box">
