@@ -9,3 +9,83 @@
     flex-direction: row;
     justify-content: end;
 }
+
+.store_cards_box {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.store_pack_cards {
+    width: 7rem;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+.store_pack_button {
+    background-color: #4A92F4;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    border-radius: 0.75rem;
+    width: 12rem;
+    height: 3rem;
+    font-size: 22px;
+}
+
+/* ------------------ */
+
+.store_pack_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    overflow-y: scroll;
+    padding: 1rem;
+    background-color: #3B3B3B;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    border-radius: 0.75rem;
+    margin-right: 2rem;
+    padding-bottom: 2rem;
+}
+
+.store_pack_card {
+    position: relative;
+    background: #f9f9f9;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.store_pack_info {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.store_pack_image {
+    width: 7rem;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-top: 1.2rem;
+}
+
+.store_pack_card button {
+    margin-top: 0.5rem;
+    background-color: #3f51b5;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: -1rem;
+    left: 20%;
+    box-shadow: 0 4px 0px 0px black;
+    border: 1px solid black;
+    border-radius: 0.75rem;
+}

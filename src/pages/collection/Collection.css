@@ -103,7 +103,6 @@
 }
 
 .collection_card_wrapper.selected {
-  border: 1px solid #ff69b4; /* rosa vivo para destacar */
   border-radius: 8px;
   box-shadow: 0 0 10px #ff69b4;
   transition: all 0.3s ease;

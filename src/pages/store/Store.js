@@ -5,50 +5,96 @@ import "./Store.css";
 import charactersData from "../../data/cards.json";
 
 // react
-//import React, { useState } from "react";
-//import { Link } from "react-router-dom";
-
-// react icons
-//import { BiMap } from "react-icons/bi";
+import { useState } from "react";
+import { Modal } from "../../components/modal/Modal";
 
 function Store() {
+  const [packResult, setPackResult] = useState([]);
+  const getOwnedCards = () => {
+    return JSON.parse(localStorage.getItem("ownedCards")) || [];
+  };
 
-    const getOwnedCards = () => {
-        return JSON.parse(localStorage.getItem("ownedCards")) || [];
-    };
+  const buyPack = (allCards, price) => {
+    const coins = parseInt(localStorage.getItem("coins") || "0", 10);
+    if (coins < price) {
+      alert("Moedas insuficientes!");
+      return;
+    }
 
-    const buyPack = (allCards) => {
-        const coins = parseInt(localStorage.getItem("coins") || "0", 10);
-        if (coins < 20) {
-            alert("Moedas insuficientes!");
-            return;
-        }
+    const owned = getOwnedCards();
+    const pack = [];
 
-        const owned = getOwnedCards();
-        const available = allCards.filter((c) => !owned.includes(c.name));
-        const pack = [];
+    while (pack.length < 4) {
+      const idx = Math.floor(Math.random() * allCards.length);
+      const card = allCards[idx];
+      pack.push(card);
+    }
 
-        while (pack.length < 4 && available.length > 0) {
-            const idx = Math.floor(Math.random() * available.length);
-            const card = available.splice(idx, 1)[0];
-            pack.push(card.name);
-        }
+    const newOwnedSet = new Set([...owned, ...pack.map((c) => c.name)]);
+    localStorage.setItem("ownedCards", JSON.stringify(Array.from(newOwnedSet)));
+    localStorage.setItem("coins", (coins - price).toString());
 
-        const newOwned = [...owned, ...pack];
-        localStorage.setItem("ownedCards", JSON.stringify(newOwned));
-        localStorage.setItem("coins", (coins - 20).toString());
-        alert(`Você ganhou: ${pack.join(", ")}`);
-    };
+    setPackResult(pack);
+  };
 
-    return (
-        <>
-            <div id="store">
-                <button onClick={() => buyPack(charactersData)}>
-                    Comprar Pack (20 moedas)
-                </button>
+  const cardPacks = [
+    { name: "VELOCIDADE", price: 40, image: "/assets/packs/pack_1.png" },
+    { name: "ÉPICO", price: 60, image: "/assets/packs/pack_2.png" },
+    { name: "INTELIGENCIA", price: 40, image: "/assets/packs/pack_3.png" },
+    { name: "LENDÁRIO", price: 80, image: "/assets/packs/pack_4.png" },
+    { name: "BÁSICO", price: 30, image: "/assets/packs/pack_5.png" },
+    { name: "PODER ESPECIAL", price: 40, image: "/assets/packs/pack_6.png" },
+    { name: "AVANÇADO", price: 50, image: "/assets/packs/pack_7.png" },
+    { name: "FORÇA FÍSICA", price: 40, image: "/assets/packs/pack_8.png" },
+    { name: "PADRÃO", price: 40, image: "/assets/packs/pack_9.png" },
+  ];
+
+  return (
+    <>
+      <div id="store">
+        <div className="store_pack_grid">
+          {cardPacks.map((pack) => (
+            <div key={pack.name} className="store_pack_card">
+              <div className="store_pack_info">
+                <span>{pack.name}</span>
+                <span>{pack.price} moedas</span>
+              </div>
+              <img
+                src={pack.image}
+                alt={pack.name}
+                className="store_pack_image"
+              />
+              <button onClick={() => buyPack(charactersData, pack.price)}>
+                Comprar
+              </button>
             </div>
-        </>
-    )
+          ))}
+        </div>
+        {packResult.length > 0 && (
+          <Modal>
+            <p>VOCÊ RECEBEU:</p>
+            <div className="store_cards_box">
+              {packResult.map((card) => (
+                <img
+                  key={card.name}
+                  src={card.cardImage}
+                  alt={card.name}
+                  title={card.name}
+                  className="store_pack_cards"
+                />
+              ))}
+            </div>
+            <button
+              className="store_pack_button"
+              onClick={() => setPackResult([])}
+            >
+              CONFIRMAR
+            </button>
+          </Modal>
+        )}
+      </div>
+    </>
+  );
 }
 
 export default Store;
