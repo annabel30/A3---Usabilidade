@@ -21,7 +21,7 @@ function Battle() {
     const hasInitialized = localStorage.getItem("hasInitialized");
 
     if (!hasInitialized) {
-      localStorage.setItem("coins", "20");
+      localStorage.setItem("coins", "20000");
       localStorage.setItem("ownedCards", JSON.stringify([]));
       localStorage.setItem("hasInitialized", "true");
     }

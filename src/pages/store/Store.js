@@ -38,15 +38,15 @@ function Store() {
   };
 
   const cardPacks = [
-    { name: "VELOCIDADE", price: 40, image: "/assets/packs/pack_1.png" },
-    { name: "ÉPICO", price: 60, image: "/assets/packs/pack_2.png" },
-    { name: "INTELIGENCIA", price: 40, image: "/assets/packs/pack_3.png" },
-    { name: "LENDÁRIO", price: 80, image: "/assets/packs/pack_4.png" },
-    { name: "BÁSICO", price: 30, image: "/assets/packs/pack_5.png" },
-    { name: "PODER ESPECIAL", price: 40, image: "/assets/packs/pack_6.png" },
-    { name: "AVANÇADO", price: 50, image: "/assets/packs/pack_7.png" },
-    { name: "FORÇA FÍSICA", price: 40, image: "/assets/packs/pack_8.png" },
-    { name: "PADRÃO", price: 40, image: "/assets/packs/pack_9.png" },
+    { name: "VELOCIDADE", price: 40, image: "/assets/packs/pack_8.png" },
+    { name: "ÉPICO", price: 60, image: "/assets/packs/pack_9.png" },
+    { name: "INTELIGENCIA", price: 40, image: "/assets/packs/pack_5.png" },
+    { name: "LENDÁRIO", price: 80, image: "/assets/packs/pack_6.png" },
+    { name: "BÁSICO", price: 30, image: "/assets/packs/pack_7.png" },
+    { name: "PODER ESPECIAL", price: 40, image: "/assets/packs/pack_3.png" },
+    { name: "AVANÇADO", price: 50, image: "/assets/packs/pack_4.png" },
+    { name: "FORÇA FÍSICA", price: 40, image: "/assets/packs/pack_1.png" },
+    { name: "PADRÃO", price: 40, image: "/assets/packs/pack_2.png" },
   ];
 
   return (
@@ -55,9 +55,15 @@ function Store() {
         <div className="store_pack_grid">
           {cardPacks.map((pack) => (
             <div key={pack.name} className="store_pack_card">
-              <div className="store_pack_info">
-                <span>{pack.name}</span>
-                <span>{pack.price} moedas</span>
+              <div className="store_pack_info">{pack.name}</div>
+              <div className="store_pack_info2">
+                {pack.price}
+                <img
+                  alt="Moeda"
+                  width="15px"
+                  height="15px"
+                  src="/assets/icons/coin.png"
+                />
               </div>
               <img
                 src={pack.image}
@@ -65,7 +71,7 @@ function Store() {
                 className="store_pack_image"
               />
               <button onClick={() => buyPack(charactersData, pack.price)}>
-                Comprar
+                COMPRAR
               </button>
             </div>
           ))}

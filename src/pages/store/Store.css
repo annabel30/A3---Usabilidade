@@ -38,7 +38,7 @@
 .store_pack_grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    gap: 1.5rem;
     overflow-y: scroll;
     padding: 1rem;
     background-color: #3B3B3B;
@@ -51,41 +51,62 @@
 
 .store_pack_card {
     position: relative;
-    background: #f9f9f9;
     padding: 0.5rem;
     border-radius: 1rem;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .store_pack_info {
     position: absolute;
-    top: 0.5rem;
+    top: 1rem;
     right: 0.5rem;
-    background: rgba(255, 255, 255, 0.9);
     padding: 0.3rem 0.5rem;
     border-radius: 0.5rem;
     font-size: 0.8rem;
     font-weight: bold;
+
+    background-image: url("../../../public/assets/backgrounds/banner_store.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 5.5rem;
+}
+
+.store_pack_info2 {
+    position: absolute;
+    top: 2.8rem;
+    right: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+
+    background-image: url("../../../public/assets/backgrounds/banner_little.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 3rem;
 }
 
 .store_pack_image {
-    width: 7rem;
+    width: 8rem;
     height: auto;
     border-radius: 0.5rem;
-    margin-top: 1.2rem;
 }
 
 .store_pack_card button {
     margin-top: 0.5rem;
-    background-color: #3f51b5;
+    background-color: #d33d3d;
     color: white;
     padding: 0.5rem 1rem;
     cursor: pointer;
     position: absolute;
-    bottom: -1rem;
+    bottom: 0rem;
     left: 20%;
     box-shadow: 0 4px 0px 0px black;
     border: 1px solid black;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
 }
